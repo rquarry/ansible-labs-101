@@ -6,21 +6,21 @@ Vagrant.configure("2") do |config|
   boxes = [
     {
       :name => "web1.demo.com",
-      :box => "centos/8",
+      :box => "ubuntu/focal64",
       :ram => 1024,
       :vcpu => 1,
       :ip => "192.168.29.2"
     },
     {
       :name => "web2.demo.com",
-      :box => "centos/8",
+      :box => "ubuntu/focal64",
       :ram => 1024,
       :vcpu => 1,
       :ip => "192.168.29.3"
     },
     {
       :name => "ansible-host",
-      :box => "centos/8",
+      :box => "ubuntu/focal64",
       :ram => 8048,
       :vcpu => 1,
       :ip => "192.168.29.4"
@@ -41,6 +41,8 @@ Vagrant.configure("2") do |config|
       config.vm.provider :virtualbox do |v|
         v.memory = opts[:ram]
         v.cpus = opts[:vcpu]
+        # Initial boot of VM's hangs. Showing gui helps close to re-run vagrant file
+        v.gui = true
       end
       config.vm.network :private_network, ip: opts[:ip]
       config.vm.provision :file do |file|
