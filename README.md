@@ -5,7 +5,7 @@ This Vagrantfile will create 3 Ubuntu 20.04 VM's to simulate Ansible control mac
 
 * Host1 - No GUI
 * Host2 - No GUI
-* ansible-host - No GUI, ansible core installed and Ansible-tower
+* ansible-host - No GUI, ansible core installed
 
 
 ## Requirements:
